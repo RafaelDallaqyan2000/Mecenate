@@ -22,7 +22,7 @@ export const like = {
   inactiveBg: '#EFF2F7',
   inactiveBgPressed: '#DDDDDD',
   inactiveBgPressedDeep: '#DDE1E6',
-  inactiveFg: '#5F6368',
+  inactiveFg: '#57626F',
   inactiveFgDisabled: '#B8BCC2',
   activeBg: '#FF4D8D',
   activeBgPressed: '#E8437E',
