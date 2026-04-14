@@ -127,7 +127,7 @@ export function ExpandableDescription({
             <LinearGradient
               pointerEvents="none"
               colors={[fadeColor, fadeStartColor(fadeColor)]}
-              locations={[0.05, 2]}
+              locations={[0.05, 1]}
               start={{ x: 1, y: 0.5 }}
               end={{ x: 0, y: 0.5 }}
               style={[styles.fade, { height: lineHeight, bottom: 0, width: FADE_WIDTH, right: LINK_SLOT }]}
