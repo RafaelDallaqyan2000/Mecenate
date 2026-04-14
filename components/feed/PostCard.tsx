@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { PaidPostStub } from '@/components/feed/PaidPostStub';
 import { feedColors, feedFonts } from '@/components/feed/feedTheme';
-import { LikeButton } from '@/components/ui/LikeButton';
 import { ExpandableDescription } from '@/components/ui/ExpandableDescription';
+import { LikeButton } from '@/components/ui/LikeButton';
 import type { Post } from '@/types/feed';
 import { CommentIcon } from '../icons';
 
@@ -145,9 +145,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 6,
     backgroundColor: feedColors.capsuleBg,
-    paddingHorizontal: 9,
+    paddingHorizontal: 12,
     paddingVertical: 9,
     borderRadius: 999,
+    minWidth: 63,
+    justifyContent: 'center',
   },
   capsuleText: {
     fontSize: 13,

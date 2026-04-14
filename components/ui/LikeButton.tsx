@@ -63,8 +63,9 @@ const styles = StyleSheet.create({
   hit: {
     borderRadius: 999,
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 9,
     alignSelf: 'flex-start',
+    minWidth: 63,
   },
   row: {
     flexDirection: 'row',

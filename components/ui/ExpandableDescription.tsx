@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import {
   LayoutChangeEvent,
   NativeSyntheticEvent,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -12,6 +13,10 @@ import {
   type TextStyle,
   type ViewStyle,
 } from 'react-native';
+import { feedColors } from '../feed/feedTheme';
+
+const LINK_SLOT = 100;
+const FADE_WIDTH = 88;
 
 function fadeStartColor(solidHex: string): string {
   if (solidHex.startsWith('#') && solidHex.length === 7) {
@@ -41,7 +46,7 @@ export function ExpandableDescription({
   lineHeight = 20,
   fadeColor,
   linkColor,
-  reserveRight = 108,
+  reserveRight = LINK_SLOT + 8,
   containerStyle,
 }: ExpandableDescriptionProps) {
   const [layoutWidth, setLayoutWidth] = useState(0);
@@ -109,26 +114,40 @@ export function ExpandableDescription({
       <View style={styles.block}>
         <Text
           numberOfLines={2}
-          style={[textStyle, { lineHeight }, needsMore && { paddingRight: reserveRight }]}>
+          style={[
+            textStyle,
+            { lineHeight },
+            Platform.OS === 'android' && styles.textAndroid,
+            // needsMore && { paddingRight: reserveRight },
+          ]}>
           {text}
         </Text>
         {needsMore ? (
           <>
             <LinearGradient
               pointerEvents="none"
-              colors={[fadeStartColor(fadeColor), fadeColor]}
-              locations={[0.15, 1]}
-              start={{ x: 0, y: 0.5 }}
-              end={{ x: 1, y: 0.5 }}
-              style={[styles.fade, { height: lineHeight, bottom: 0 }]}
+              colors={[fadeColor, fadeStartColor(fadeColor)]}
+              locations={[0.05, 2]}
+              start={{ x: 1, y: 0.5 }}
+              end={{ x: 0, y: 0.5 }}
+              style={[styles.fade, { height: lineHeight, bottom: 0, width: FADE_WIDTH, right: LINK_SLOT }]}
             />
             <Pressable
-              accessibilityRole="button"
+              accessibilityRole="link"
               accessibilityLabel="Показать еще"
               hitSlop={8}
-              style={styles.moreHit}
+              style={[styles.moreHit, { height: lineHeight, bottom: 0, minWidth: LINK_SLOT }]}
               onPress={() => setExpanded(true)}>
-              <Text style={[textStyle, styles.moreLabel, { color: linkColor, lineHeight }]}>Показать еще</Text>
+              <Text
+                numberOfLines={1}
+                style={[
+                  textStyle,
+                  styles.moreLabel,
+                  { color: linkColor, lineHeight },
+                  Platform.OS === 'android' && styles.textAndroid,
+                ]}>
+                Показать еще
+              </Text>
             </Pressable>
           </>
         ) : null}
@@ -148,19 +167,24 @@ const styles = StyleSheet.create({
   block: {
     position: 'relative',
   },
+  textAndroid: {
+    includeFontPadding: false,
+  },
   fade: {
     position: 'absolute',
-    right: 96,
-    width: 72,
+    zIndex: 1,
   },
   moreHit: {
     position: 'absolute',
     right: 0,
-    bottom: 0,
-    justifyContent: 'flex-end',
+    zIndex: 2,
+    justifyContent: 'center',
+    paddingLeft: 2,
+    backgroundColor: feedColors.cardBg,
   },
   moreLabel: {
+    fontWeight: '600',
+    textAlign: 'left',
     fontSize: 15,
-    fontWeight: '500',
   },
 });
