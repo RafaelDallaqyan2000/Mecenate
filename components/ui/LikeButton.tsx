@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { feedFonts } from '@/components/feed/feedTheme';
+import { feedColors, feedFonts } from '@/components/feed/feedTheme';
 import { HeartIcon } from '@/components/icons/HeartIcon';
 import { likeTheme } from '@/constants/likeTheme';
 
@@ -73,10 +73,11 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   count: {
-    fontFamily: feedFonts.bodyMedium,
+    fontFamily: feedFonts.title,
     fontSize: 13,
     fontWeight: '700',
     lineHeight: 18,
     minWidth: 18,
+    color: feedColors.textSecondary,
   },
 });

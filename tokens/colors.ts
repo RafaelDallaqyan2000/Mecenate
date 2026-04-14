@@ -7,20 +7,20 @@ export const palette = {
 } as const;
 
 export const surface = {
-  screen: '#ECEFF3',
+  screen: '#F5F8FD',
   card: '#FFFFFF',
-  capsule: '#F0F2F5',
+  capsule: '#EFF2F7',
   skeleton: '#E8EAED',
 } as const;
 
 export const text = {
   primary: '#111416',
-  secondary: '#5F6368',
+  secondary: '#57626F',
 } as const;
 
 export const like = {
-  inactiveBg: '#F5F6F8',
-  inactiveBgPressed: '#E8EAED',
+  inactiveBg: '#EFF2F7',
+  inactiveBgPressed: '#DDDDDD',
   inactiveBgPressedDeep: '#DDE1E6',
   inactiveFg: '#5F6368',
   inactiveFgDisabled: '#B8BCC2',

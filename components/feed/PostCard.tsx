@@ -152,10 +152,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   capsuleText: {
+    fontFamily: feedFonts.title,
     fontSize: 13,
-    color: feedColors.textSecondary,
     fontWeight: '700',
     lineHeight: 18,
-    letterSpacing: 0,
+    minWidth: 18,
+    color: feedColors.textSecondary,
   },
 });
