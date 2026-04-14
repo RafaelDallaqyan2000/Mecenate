@@ -24,9 +24,9 @@ export const like = {
   inactiveBgPressedDeep: '#DDE1E6',
   inactiveFg: '#57626F',
   inactiveFgDisabled: '#B8BCC2',
-  activeBg: '#FF4D8D',
+  activeBg: '#FF2B75',
   activeBgPressed: '#E8437E',
   activeBgPressedDeep: '#C73568',
   activeBgSoft: '#FFD6E8',
-  activeFg: '#FFFFFF',
+  activeFg: '#FFEAF1',
 } as const;
