@@ -14,8 +14,8 @@ function readExtra(): { base: string; user: string } {
 
 const extra = readExtra();
 
-export const API_BASE_URL = extra.base  || '';
+export const API_BASE_URL = extra.base  || 'https://k8s.mectest.ru/test-app';
 
-export const API_USER_ID = extra.user || '';
+export const API_USER_ID = extra.user || '550e8400-e29b-41d4-a716-446655440000';
 
 export const FEED_PAGE_SIZE = 10;
