@@ -8,5 +8,6 @@ module.exports = ({ config }) => ({
     ...(config.extra ?? {}),
     EXPO_PUBLIC_API_BASE_URL: process.env.EXPO_PUBLIC_API_BASE_URL ?? '',
     EXPO_PUBLIC_API_USER_ID: process.env.EXPO_PUBLIC_API_USER_ID ?? '',
+    EXPO_PUBLIC_WS_URL: process.env.EXPO_PUBLIC_WS_URL ?? '',
   },
 });

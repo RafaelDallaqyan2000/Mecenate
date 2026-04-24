@@ -5,7 +5,11 @@ import { useCallback, useMemo, useState } from 'react';
 import { feedPostsQueryKey } from '@/hooks/feed-query-keys';
 import { fetchPostsPage } from '@/services/feedPostsService';
 import { togglePostLike } from '@/services/postLikeService';
-import type { Post, PostsPage } from '@/types/feed';
+import type { FeedTierFilter, Post, PostsPage } from '@/types/feed';
+
+export interface UseFeedPostsParams {
+  tier: FeedTierFilter;
+}
 
 export interface UseFeedPostsResult {
   posts: Post[];
@@ -24,14 +28,17 @@ export interface UseFeedPostsResult {
   onLikePress: (postId: string) => void;
 }
 
-export function useFeedPosts(): UseFeedPostsResult {
+export function useFeedPosts({ tier }: UseFeedPostsParams): UseFeedPostsResult {
   const qc = useQueryClient();
   const [isMoreError, setIsMoreError] = useState(false);
 
+  const queryKey = feedPostsQueryKey(tier);
+
   const query = useInfiniteQuery({
-    queryKey: feedPostsQueryKey,
+    queryKey,
     initialPageParam: undefined as string | undefined,
-    queryFn: ({ pageParam }: { pageParam: string | undefined }) => fetchPostsPage(pageParam),
+    queryFn: ({ pageParam }: { pageParam: string | undefined }) =>
+      fetchPostsPage({ cursor: pageParam, tier }),
     getNextPageParam: (lastPage: PostsPage) => {
       if (!lastPage.hasMore) return undefined;
       return lastPage.nextCursor ?? undefined;
@@ -43,7 +50,7 @@ export function useFeedPosts(): UseFeedPostsResult {
   const likeMutation = useMutation({
     mutationFn: (postId: string) => togglePostLike(postId),
     onSuccess: (data, postId) => {
-      qc.setQueryData<InfiniteData<PostsPage>>(feedPostsQueryKey, (old) => {
+      qc.setQueryData<InfiniteData<PostsPage>>(queryKey, (old) => {
         if (!old) return old;
         return {
           pageParams: old.pageParams,
@@ -77,8 +84,8 @@ export function useFeedPosts(): UseFeedPostsResult {
 
   const retryFatal = useCallback(() => {
     setIsMoreError(false);
-    void qc.resetQueries({ queryKey: feedPostsQueryKey });
-  }, [qc]);
+    void qc.resetQueries({ queryKey });
+  }, [qc, queryKey]);
 
   const retryRefresh = useCallback(() => {
     setIsMoreError(false);

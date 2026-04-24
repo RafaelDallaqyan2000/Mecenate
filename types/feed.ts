@@ -29,3 +29,23 @@ export interface PostsPage {
   nextCursor: string | null;
   hasMore: boolean;
 }
+
+export type FeedTierFilter = 'all' | 'free' | 'paid';
+
+export interface Comment {
+  id: string;
+  postId: string;
+  author: Author;
+  text: string;
+  createdAt: string;
+  likesCount?: number;
+  isLiked?: boolean;
+}
+
+export type CommentsSortMode = 'default' | 'new' | 'popular';
+
+export interface CommentsPage {
+  comments: Comment[];
+  nextCursor: string | null;
+  hasMore: boolean;
+}

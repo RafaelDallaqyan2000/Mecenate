@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
-import { memo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
+import { memo, useCallback } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { PaidPostStub } from '@/components/feed/PaidPostStub';
 import { feedColors, feedFonts } from '@/components/feed/feedTheme';
@@ -16,9 +17,25 @@ export interface PostCardProps {
 
 function PostCardComponent({ post, onLikePress }: PostCardProps) {
   const isPaid = post.tier === 'paid';
+  const router = useRouter();
+
+  const openDetail = useCallback(() => {
+    if (isPaid) return;
+    router.push({ pathname: '/post/[id]', params: { id: post.id } });
+  }, [router, post.id, isPaid]);
+
+  const Root = isPaid ? View : Pressable;
+  const rootProps = isPaid
+    ? {}
+    : {
+        onPress: openDetail,
+        accessibilityRole: 'button' as const,
+        accessibilityLabel: `Открыть пост: ${post.title}`,
+        android_ripple: { color: feedColors.capsuleBg },
+      };
 
   return (
-    <View style={styles.card}>
+    <Root style={styles.card} {...rootProps}>
       <View style={styles.header}>
         <Image source={{ uri: post.author.avatarUrl }} style={styles.avatar} contentFit="cover" />
         <Text style={styles.authorName} numberOfLines={1}>
@@ -62,7 +79,7 @@ function PostCardComponent({ post, onLikePress }: PostCardProps) {
           </View>
         </View>
       )}
-    </View>
+    </Root>
   );
 }
 

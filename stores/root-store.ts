@@ -1,10 +1,14 @@
 import { makeAutoObservable } from 'mobx';
 
+import { UiStore } from './ui-store';
+
 export class RootStore {
   appVersion = 1;
+  ui: UiStore;
 
   constructor() {
-    makeAutoObservable(this);
+    this.ui = new UiStore();
+    makeAutoObservable(this, { ui: false });
   }
 }
 

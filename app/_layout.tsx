@@ -1,4 +1,4 @@
-import { Manrope_500Medium, Manrope_700Bold, useFonts } from '@expo-google-fonts/manrope';
+import { Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold, useFonts } from '@expo-google-fonts/manrope';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -18,6 +18,7 @@ export const unstable_settings = {
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     Manrope_500Medium,
+    Manrope_600SemiBold,
     Manrope_700Bold,
   });
   const [appReady, setAppReady] = useState(false);
@@ -42,6 +43,7 @@ export default function RootLayout() {
       <AppProviders>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="post/[id]" options={{ headerShown: true, title: '' }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
         </Stack>
         <StatusBar style="dark" />

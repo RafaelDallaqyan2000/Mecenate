@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d7a7ab47-0ca0-4154-9821-aab223ac1657" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/feed/FeedScreenView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/feed/FeedScreenView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/feed/PostCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/feed/PostCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/feed/feedTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/feed/feedTheme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/LikeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/LikeButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/apiConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/apiConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/feed-query-keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/feed-query-keys.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useFeedPosts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useFeedPosts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/providers/AppProviders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/providers/AppProviders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/feedPostsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/feedPostsService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens/typography.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/typography.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/feed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/feed.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="3CnobWofQZNZRGAWj4liJh6TZ0T" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "Admin",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d7a7ab47-0ca0-4154-9821-aab223ac1657" name="Changes" comment="" />
+      <created>1777030769069</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1777030769069</updated>
+    </task>
+    <servers />
+  </component>
+</project>

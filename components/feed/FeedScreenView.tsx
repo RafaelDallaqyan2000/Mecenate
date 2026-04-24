@@ -1,16 +1,19 @@
 import { useCallback } from 'react';
-import { ActivityIndicator, FlatList, ListRenderItem, RefreshControl, StyleSheet } from 'react-native';
+import { ActivityIndicator, FlatList, ListRenderItem, RefreshControl, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { FeedFatalError } from '@/components/feed/FeedFatalError';
 import { FeedListFooter } from '@/components/feed/FeedListFooter';
 import { FeedRefreshErrorBanner } from '@/components/feed/FeedRefreshErrorBanner';
+import { FeedTierTabs } from '@/components/feed/FeedTierTabs';
 import { PostCard } from '@/components/feed/PostCard';
 import { feedColors } from '@/components/feed/feedTheme';
-import type { Post } from '@/types/feed';
+import type { FeedTierFilter, Post } from '@/types/feed';
 
 export interface FeedScreenViewProps {
   posts: Post[];
+  tier: FeedTierFilter;
+  onTierChange: (next: FeedTierFilter) => void;
   isInitialLoading: boolean;
   isRefreshing: boolean;
   isLoadingMore: boolean;
@@ -28,6 +31,8 @@ export interface FeedScreenViewProps {
 
 export function FeedScreenView({
   posts,
+  tier,
+  onTierChange,
   isInitialLoading,
   isRefreshing,
   isLoadingMore,
@@ -51,6 +56,7 @@ export function FeedScreenView({
   if (isEmptyFatalError && !isInitialLoading) {
     return (
       <SafeAreaView style={styles.safe} edges={['top']}>
+        <FeedTierTabs value={tier} onChange={onTierChange} />
         <FeedFatalError isRetrying={isInitialLoading} onRetry={onRetryFatal} />
       </SafeAreaView>
     );
@@ -58,14 +64,18 @@ export function FeedScreenView({
 
   if (isInitialLoading && posts.length === 0) {
     return (
-      <SafeAreaView style={[styles.safe, styles.centered]} edges={['top']}>
-        <ActivityIndicator size="large" color={feedColors.primary} />
+      <SafeAreaView style={styles.safe} edges={['top']}>
+        <FeedTierTabs value={tier} onChange={onTierChange} />
+        <View style={styles.centered}>
+          <ActivityIndicator size="large" color={feedColors.primary} />
+        </View>
       </SafeAreaView>
     );
   }
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
+      <FeedTierTabs value={tier} onChange={onTierChange} />
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
@@ -103,6 +113,7 @@ const styles = StyleSheet.create({
     backgroundColor: feedColors.screenBg,
   },
   centered: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },

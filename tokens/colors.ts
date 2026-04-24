@@ -8,6 +8,7 @@ export const palette = {
 
 export const surface = {
   screen: '#F5F8FD',
+  screenLight: '#fff',
   card: '#FFFFFF',
   capsule: '#EFF2F7',
   skeleton: '#E8EAED',
@@ -16,6 +17,8 @@ export const surface = {
 export const text = {
   primary: '#111416',
   secondary: '#57626F',
+  lightGray: '#68727D',
+  placeholder: '#A4AAB0',
 } as const;
 
 export const like = {
