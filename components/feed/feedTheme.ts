@@ -6,6 +6,7 @@ export const feedColors = {
   screenBgLight: surface.screenLight,
   cardBg: surface.card,
   capsuleBg: surface.capsule,
+  borderColor: surface.border,
   textPrimary: text.primary,
   textSecondary: text.secondary,
   textLightGray: text.lightGray,
@@ -14,6 +15,8 @@ export const feedColors = {
   primaryPressed: palette.accentPressed,
   primaryDisabled: palette.accentMuted,
   focusRing: palette.focusRing,
+  onPrimary: palette.accent,
+  onPrimaryDisabled: palette.onAccentDisabled,
 };
 
 export const feedFonts = fontFamily;

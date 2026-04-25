@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   listContent: {
-    paddingTop: 16,
+    // paddingTop: 16,
     paddingBottom: 24,
   },
 });

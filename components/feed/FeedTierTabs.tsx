@@ -48,15 +48,25 @@ export function FeedTierTabs({ value, onChange }: FeedTierTabsProps) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    justifyContent: 'center',
     gap: 8,
-    paddingHorizontal: 16,
-    paddingBottom: 12,
+    marginHorizontal: 16,
+    marginVertical: 16,
+    borderWidth: 1,
+    borderColor: feedColors.capsuleBg,
+    borderStyle: 'solid',
+    borderRadius: 999,
+    overflow: 'hidden',
+    backgroundColor: feedColors.cardBg,
   },
+
   tab: {
     paddingHorizontal: 14,
-    paddingVertical: 8,
+    paddingVertical: 10,
     borderRadius: 999,
-    backgroundColor: feedColors.capsuleBg,
+    width: '33%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   tabActive: {
     backgroundColor: feedColors.primary,
@@ -66,12 +76,12 @@ const styles = StyleSheet.create({
   },
   label: {
     fontFamily: feedFonts.bodyMedium,
-    fontSize: 14,
+    fontSize: 13,
     lineHeight: 18,
     color: feedColors.textSecondary,
   },
   labelActive: {
     color: feedColors.cardBg,
-    fontWeight: '600',
+    fontFamily: feedFonts.title,
   },
 });

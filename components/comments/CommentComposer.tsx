@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 
+import SendMessageIcon from '@/assets/icons/SendMessageIcon';
 import { feedColors, feedFonts } from '@/components/feed/feedTheme';
 
 const MIN_LENGTH = 1;
@@ -55,13 +56,12 @@ export function CommentComposer({ onSubmit, isSubmitting = false }: CommentCompo
         onPress={handleSend}
         style={({ pressed }) => [
           styles.sendBtn,
-          !canSubmit && styles.sendBtnDisabled,
           pressed && canSubmit && styles.sendBtnPressed,
         ]}>
         {isSubmitting ? (
           <ActivityIndicator size="small" color={feedColors.cardBg} />
         ) : (
-          <View accessibilityElementsHidden style={styles.arrow} />
+          <SendMessageIcon color={!canSubmit ? feedColors.onPrimaryDisabled : feedColors.onPrimary} />
         )}
       </Pressable>
     </View>
@@ -103,12 +103,9 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: feedColors.primary,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  sendBtnDisabled: {
-    backgroundColor: feedColors.primaryDisabled,
+    backgroundColor: feedColors.cardBg,
   },
   sendBtnPressed: {
     backgroundColor: feedColors.primaryPressed,

@@ -4,6 +4,7 @@ export const palette = {
   accentMuted: '#DDD6FE',
   onAccent: '#FFFFFF',
   focusRing: '#C4B5FD',
+  onAccentDisabled: '#D5C9FF',
 } as const;
 
 export const surface = {
@@ -11,6 +12,7 @@ export const surface = {
   screenLight: '#fff',
   card: '#FFFFFF',
   capsule: '#EFF2F7',
+  border: '#E8ECEF',
   skeleton: '#E8EAED',
 } as const;
 
